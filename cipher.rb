@@ -1,10 +1,10 @@
 def letter2number(string)
-array = [] # Start with empty array
-for i in string.bytes do # For each character
-array.push(i - 65) # Add the corresponding number to the end
+	array = [] # Start with empty array
+	for i in string.bytes do # For each character
+		array.push(i - 65) # Add the corresponding number to the end
 # of the array
-end
-return array
+	end
+	return array
 end
 def number2letter(array)
   string = "" # Start with empty string
