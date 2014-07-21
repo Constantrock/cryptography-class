@@ -68,3 +68,18 @@ end
 
 ## Can we alter the previous to do an affine cipher?
 end
+def good_mod_generator(x)
+    for i in 2..x
+        if isprime(i) == true
+            puts i
+        end    
+    end
+end
+def isprime(x)
+    for i in 2..(x**(1.0/2.0))
+        if x % i == 0
+            return false
+        end
+    end
+    return true
+end
