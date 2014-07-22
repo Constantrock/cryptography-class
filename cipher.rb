@@ -69,17 +69,58 @@ end
 ## Can we alter the previous to do an affine cipher?
 end
 def good_mod_generator(x)
-    for i in 2..x
+    for i in 1..x
         if isprime(i) == true
             puts i
-        end    
+        end
     end
 end
+
 def isprime(x)
     for i in 2..(x**(1.0/2.0))
         if x % i == 0
             return false
         end
+    return true 
     end
-    return true
+end
+def modexp(e, x, p)
+    until e == 0
+	    if e % w == 1
+		    tot *=
+end
+
+
+def openrsa(m, e, pq)
+    if m > pq
+       puts"ISSUE"
+       return -1   
+    c = modexp(m, e, pq)
+    return c
+end
+
+def clear
+    puts("\n" * 50)
+end
+
+def authority(p, q, e)
+    if gcd(e, ((p-1)*(q-1) != 1
+        puts("ISSUE")
+        return -1
+    for einv in 2..((p-1) * (q -1))
+        if ( e* einv) % ((p-1) * (q-1)) == 1
+            return einv
+    end
+    puts("didn't find inverse")
+    return -1
+end
+
+def she_loves_me?
+    for flower_petals in 1..10
+        if flower_petals % 2 == 0
+            puts("She loves me")
+        else
+            puts("She loves me not")
+        end
+    end
 end
