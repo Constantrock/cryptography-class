@@ -1,122 +1,9 @@
-def letter2number(string)
-	array = [] # Start with empty array
-	for i in string.bytes do # For each character
-		array.push(i - 65) # Add the corresponding number to the end
-# of the array
-	end
-	return array
-end
-def number2letter(array)
-  string = "" # Start with empty string
-  for i in array.each do # For each number
-    string += (i+65).chr # Add the corresponding character to
-# the end of the array
-  end
-return string
-end
-
-def ceaser_encipher(plaintxt)
-	plainnum = letter2number(plaintxt)
-	outnum = []
-	for num, index in plainnum.each_with_index
-	outnum[index] = (num + 3) % 26
-	end
-	outtxt = number2letter(outnum)
-	return outtxt
-end
-
-def ceaser_decipher(plaintxt)
-	plainum = letter2number(plaintxt)
-	outnum = []
-	for num, index in plainnum.each_with_index
-	outnum[index] = (num - 3) % 26
-	end
-	outtxt = number2letter(outnum)
-
-	return outtxt
-end
-def shift_encipher(plaintxt, key)
-	plainum = letter2number(plaintxt)
-	outnum = []
-	for num, index in plainnum.each_with_index
-	outnum[index] = (num + key) % 26
-	end
-	outtxt = number2letter(outnum)
-	return outtxt
-end
-def shift_decipher(plaintxt, key)
-	planinum = letter2number(plaintxt)
-	outnum = []
-	for num, index in plainnum.each_with_index
-	outnum[index] = (num - key) % 26
-	end
-	outtxt = number2letter(outnum)
-	return outtxt
-end
-## Can we alter the previous two to do a shift cipher?
-def vigenere_encipher(string, keyword)
-## Can we alter the previous to do vigenere cipher?
-end
-def affine_encipher(plaintxt, m, k)planinum = letter2number(plaintxt)
-	outnum = []
-	for num, index in plainnum.each_with_index
-	outnum[index] = ((num * m )+ k ) % 26
-	end
-	outtxt = number2letter(outnum)
-	return outtxt
-end
-
-## Can we alter the previous to do an affine cipher?
-end
-def good_mod_generator(x)
-    for i in 1..x
-        if isprime(i) == true
-            puts i
-        end
-    end
-end
-
-def isprime(x)
-    for i in 2..(x**(1.0/2.0))
-        if x % i == 0
-            return false
-        end
-    return true 
-    end
-end
-def modexp(e, x, p)
-    until e == 0
-	    if e % w == 1
-		    tot *=
-end
-
-
-def openrsa(m, e, pq)
-    if m > pq
-       puts"ISSUE"
-       return -1   
-    c = modexp(m, e, pq)
-    return c
-end
-
 def clear
     puts("\n" * 50)
 end
 
-def authority(p, q, e)
-    if gcd(e, ((p-1)*(q-1) != 1
-        puts("ISSUE")
-        return -1
-    for einv in 2..((p-1) * (q -1))
-        if ( e* einv) % ((p-1) * (q-1)) == 1
-            return einv
-    end
-    puts("didn't find inverse")
-    return -1
-end
-
 def good_mod_generator(x)
-    for i in 1..x
+    for i in 999999999..x
         if isprime(i) == true
             puts i
         end
@@ -134,7 +21,7 @@ end
 
 def modexp(e, x, m)
     tot = 1
-	until e == 0 
+    until e == 0
         if e % 2 == 1
             tot = (tot * x )% m
             tot = tot %m
@@ -159,16 +46,67 @@ def clear
     puts("\n" * 50)
 end
 
-
 def authority(p, q, e)
-    if gcd(e, ((p-1)*(q-1) != 1
+    if gcd(e, ((p-1)*(q-1))) != 1
         puts("ISSUE")
         return -1
     end
-    for einv in 2..((p-1) * (q -1))
-        if ( e* einv) % ((p-1) * (q-1)) == 1
-            return einv
+ #   for einv in 2..((p-1) * (q -1))
+   #     if ( e* einv) % ((p-1) * (q-1)) == 1
+    #        return einv
+     #   end
+    #end
+    #puts("didn't find inverse")
+    #return -1
+    return modinv(e, (p*q))
+end
+
+def ex_gcd(a, b)
+    s = 0
+    old_s = 1
+    r = b
+    old_r = a
+    old_t = 0
+    t = 1
+    while r != 0
+        quotient = old_r / r
+        old_r, r = r, old_r - quotient * r
+        old_s, s = s, old_s - quotient * s
+        old_t, t = t, old_t - quotient * t
     end
-    puts("didn't find inverse")
-    return -1
+    return old_s
+end
+def modinv(x, m)
+     c = ex_gcd(x, m)
+    return c
+end
+def gcd(a, b)
+    s = 0
+    old_s = 1
+    r = b
+    old_r = a
+    old_t = 0
+    t = 1
+    while r != 0
+        quotient = old_r / r
+        old_r, r = r, old_r - quotient * r
+        old_s, s = s, old_s - quotient * s
+        old_t, t = t, old_t - quotient * t
+    end
+    return old_r
+end
+
+def generate_primes(x)
+    nums = (0..x).to_a
+    primes = []
+    for i in 2..x
+        if nums[i] != -1
+        primes.push(i)
+        n = 2*i
+        end
+        while n <= x
+            nums[x] = -1
+            x += i
+        end
+    end
 end
